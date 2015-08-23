@@ -22,6 +22,7 @@
  * - Add a #define below.
  * - Add a message in the table above ex_version().
  * - Add a string to f_has().
+ * - in version.c, update features[] array
  * - Add a feature to ":help feature-list" in doc/eval.txt.
  * - Add feature to ":help +feature-list" in doc/various.txt.
  * - Add comment for the documentation of commands that use the feature.
@@ -174,6 +175,10 @@
 #ifdef FEAT_BIG
 # define FEAT_LANGMAP
 #endif
+
+
+
+
 
 /*
  * +keymap		'keymap' option.  Allows you to map typed keys in
@@ -328,6 +333,15 @@
 # ifndef FEAT_RIGHTLEFT
 #   define FEAT_RIGHTLEFT
 # endif
+#endif
+
+/*
+ * +multicursor		'multicursor' feature and it's implementation.
+ *			This feature allows to have several cursor editing at 
+ *			same time.
+ * */
+#ifdef FEAT_BIG || defined(FEAT_HUGE)
+# define FEAT_MULTICURSOR
 #endif
 
 /*
