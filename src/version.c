@@ -435,6 +435,11 @@ static char *(features[]) =
 #else
 	"-multi_lang",
 #endif
+#ifdef FEAT_MULTICURSOR
+	"+multi_cursor",
+#else
+	"-multi_cursor",
+#endif
 #ifdef FEAT_MZSCHEME
 # ifdef DYNAMIC_MZSCHEME
 	"+mzscheme/dyn",

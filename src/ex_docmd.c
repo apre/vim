@@ -484,6 +484,20 @@ static void	ex_folddo __ARGS((exarg_T *eap));
 # define ex_breaklist		ex_ni
 #endif
 
+#ifdef FEAT_MULTICURSOR
+static void	ex_multicursor_add               __ARGS((exarg_T *eap));
+static void	ex_multicursor_clear_all         __ARGS((exarg_T *eap));
+static void	ex_multicursor_delete            __ARGS((exarg_T *eap));
+static void	ex_multicursor_start_interactive __ARGS((exarg_T *eap));
+static void	ex_multicursor_stop_interactive  __ARGS((exarg_T *eap));
+#else
+# define  ex_multicursor_add		     ex_ni
+# define  ex_multicursor_clear_all           ex_ni
+# define  ex_multicursor_delete              ex_ni
+# define  ex_multicursor_start_interactive   ex_ni
+# define  ex_multicursor_stop_interactive    ex_ni
+#endif
+
 #ifndef FEAT_CMDHIST
 # define ex_history		ex_ni
 #endif
@@ -4261,6 +4275,11 @@ set_one_cmd_context(xp, buff)
 	    break;
 #endif
 
+#if defined(FEAT_MULTICURSOR)
+	case CMD_multicursoradd:
+	    break;
+#endif
+
 #endif /* FEAT_CMDL_COMPL */
 
 	default:
@@ -7201,6 +7220,62 @@ ex_close(eap)
 	    }
 	}
 }
+
+# ifdef FEAT_MULTICURSOR
+/*
+ * ":mca": add a new cursor at current position.
+ */
+    static void
+ex_multicursor_add(eap)
+    exarg_T	*eap;
+{
+    win_T	*win;
+
+    printf("mca command called\n");
+    printf("Cursor (%3d,%3d)\n",curwin->w_cursor.col,curwin->w_cursor.lnum);
+
+}
+/*
+ * ":mcc": delete all cursors
+ */
+    static void
+ex_multicursor_clear_all(eap)
+    exarg_T	*eap;
+{
+    printf("mcc command called\n");
+}
+/*
+ * ":mcd": delete one cursor
+ * */
+    static void
+ex_multicursor_delete(eap)
+    exarg_T	*eap;
+{
+    printf("mcd command called\n");
+}
+/*
+ * ":mci": start multi-cursor interactive mode
+ * */
+    static void
+ex_multicursor_start_interactive(eap)
+    exarg_T	*eap;
+{
+    printf("mci command called\n");
+}
+
+/*
+ * ":mcs": leave multi-cursor interactive mode
+ */
+    static void
+ex_multicursor_stop_interactive(eap)
+    exarg_T	*eap;
+{
+    printf("mcs command called\n");
+}
+
+
+
+# endif
 
 # ifdef FEAT_QUICKFIX
 /*

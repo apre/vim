@@ -390,6 +390,7 @@ N  *+mouse_xterm*	Unix only: xterm mouse handling |xterm-mouse|
 N  *+multi_byte*	16 and 32 bit characters |multibyte|
    *+multi_byte_ime*	Win32 input method for multibyte chars |multibyte-ime|
 N  *+multi_lang*	non-English language support |multi-lang|
+N  *+multi_cursor*      Multiple cursor support |multi-cursor|
 m  *+mzscheme*		Mzscheme interface |mzscheme|
 m  *+mzscheme/dyn*	Mzscheme interface |mzscheme-dynamic| |/dyn|
 m  *+netbeans_intg*	|netbeans|

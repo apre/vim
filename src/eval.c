@@ -12768,6 +12768,7 @@ f_has(argvars, rettv)
 #ifdef FEAT_FOLDING
 	"folding",
 #endif
+
 #ifdef FEAT_FOOTER
 	"footer",
 #endif
@@ -12899,6 +12900,9 @@ f_has(argvars, rettv)
 #endif
 #ifdef FEAT_MULTI_LANG
 	"multi_lang",
+#endif
+#ifdef FEAT_MULTICURSOR
+	"multi_cursor",
 #endif
 #ifdef FEAT_MZSCHEME
 #ifndef DYNAMIC_MZSCHEME

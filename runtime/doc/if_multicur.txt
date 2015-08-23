@@ -1,0 +1,78 @@
+*if_multicur.txt*	For Vim version 7.4.  Last change: 2015 Aug 15
+
+
+		  VIM REFERENCE MANUAL    by Adrien Pre
+
+
+Help multicursor feature		*multi-cursor*	*multicur* *mtc*
+
+Multi-cursor feature allows to have more than one cursor on the screen. 
+
+Note: The multi-cursor feature only works if Vim vas compiled with the
+|+multicur| feature.
+
+1. Multi cursor introduction    |mc-intro|
+   1.1 multi cursor modes       |mc-modes|
+   1.2 switching between modes  |mc-modes-switch|
+2. Commands       		|mc-ex-commands|
+3. Future ideas          	|mc-future|
+
+{Vi does not have any of these commands} 
+
+WARNING: There are probably still some bugs.  Please send bug reports,
+comments, ideas etc to <xxxx@xxxxxx>
+
+==============================================================================
+1. Multicursor introduction    	                        	*mc-intro*
+1.1 Multi-cursor modes ~
+   			                                        *mc-modes*
+
+Multi-cursor are window-specific. All multi-cursor commands applies te the
+current active buffer.
+
+In Insert or Replace mode, multi-cursor have theses modes:
+   - DISABLED : there is only one cursor
+   - CONFIG   : multi cursor is beeing configured.
+   - RUNNING  : all cursor are working together.
+
+1.2 switching between modes ~
+							       *mc-modes-switch*
+Modes are changed with the multi-cursor ex commands.
+     
+               :mcc         
+   DISABLED <------ RUNNING ---+
+      | :mca           ^       |
+      v                | :mci  | :mcs
+   CONFIG -------------+       | :mcd
+   :mcd ^                      |
+        |                      |
+        +----------------------+             
+								
+==============================================================================
+2. Multicursor ex commands                               	*mc-ex-commands*
+
+:mca 			Add a cursor. 				*:mca*
+			A new cursor will be added at the current cursor
+			position.
+
+:mcc                    			                *:mcc*
+			Clears all cursors.  
+
+:mcd                                                            *:mcd*
+			Delete one cursor.
+                     
+:mci								*:mci*
+			Starts multi-cursor interactive mode.
+:mcs								*:mcs*
+			Stops the multi-cursor interactive mode.
+
+
+==============================================================================
+3. Future ideas 		                               	*mc-future*
+
+   - basic movement commands
+   - complex movememt 
+   - have multi cursor work in visual mode
+   - setup cursors with regex 
+
+ vim:tw=78:ts=8:ft=help:norl:

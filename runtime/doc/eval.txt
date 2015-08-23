@@ -6841,6 +6841,7 @@ multi_byte		Compiled with support for 'encoding'
 multi_byte_encoding	'encoding' is set to a multi-byte encoding.
 multi_byte_ime		Compiled with support for IME input method.
 multi_lang		Compiled with support for multiple languages.
+multi_cursor            Compiled with support for multiple cursor.
 mzscheme		Compiled with MzScheme interface |mzscheme|.
 netbeans_enabled	Compiled with support for |netbeans| and connected.
 netbeans_intg		Compiled with support for |netbeans|.

@@ -1458,6 +1458,7 @@ BASIC_SRC = \
 	hashtab.c \
 	if_cscope.c \
 	if_xcmdsrv.c \
+	if_multicur.c \
 	main.c \
 	mark.c \
 	memfile.c \
@@ -1550,6 +1551,7 @@ OBJ_COMMON = \
 	$(HANGULIN_OBJ) \
 	objects/if_cscope.o \
 	objects/if_xcmdsrv.o \
+	objects/if_multicur.o \
 	objects/mark.o \
         objects/memline.o \
 	objects/menu.o \
@@ -2654,6 +2656,9 @@ objects/if_xcmdsrv.o: if_xcmdsrv.c
 
 objects/if_lua.o: if_lua.c
 	$(CCC) $(LUA_CFLAGS) -o $@ if_lua.c
+
+objects/if_multicur.o: if_multicur.c
+	$(CCC) $(LUA_CFLAGS) -o $@ if_multicur.c
 
 objects/if_mzsch.o: if_mzsch.c $(MZSCHEME_EXTRA)
 	$(CCC) -o $@ $(MZSCHEME_CFLAGS_EXTRA) if_mzsch.c
