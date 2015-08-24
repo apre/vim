@@ -4625,6 +4625,11 @@ win_alloc(after, hidden)
     init_var_dict(new_wp->w_vars, &new_wp->w_winvar, VAR_SCOPE);
 #endif
 
+
+#ifdef FEAT_MULTICURSOR
+    mtc_list_init(&new_wp->w_multicursors);
+#endif
+
 #ifdef FEAT_AUTOCMD
     /* Don't execute autocommands while the window is not properly
      * initialized yet.  gui_create_scrollbar() may trigger a FocusGained
@@ -4706,6 +4711,11 @@ win_free(wp, tp)
      * gui_mch_destroy_scrollbar() may trigger a FocusGained event. */
     block_autocmds();
 #endif
+
+#ifdef FEAT_MULTICURSOR
+    mtc_list_free(&wp->w_multicursors);
+#endif
+
 
 #ifdef FEAT_LUA
     lua_window_free(wp);

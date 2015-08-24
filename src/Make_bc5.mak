@@ -635,6 +635,11 @@ vimobj = $(vimobj) \
     $(OBJDIR)\if_lua.obj
 !endif
 
+!ifdef MULTICURSOR
+vimobj = $(vimobj) \
+    $(OBJDIR)\if_multicur.obj
+!endif
+
 !ifdef PERL
 vimobj = $(vimobj) \
     $(OBJDIR)\if_perl.obj

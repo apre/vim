@@ -20,16 +20,27 @@ typedef int		colnr_T;
 typedef unsigned short	short_u;
 #endif
 
+#ifdef FEAT_MULTICURSOR
+#include "if_multicur.h"
+#endif
+
 /*
  * position in file or buffer
  */
-typedef struct
+typedef struct post_s
 {
     linenr_T	lnum;	/* line number */
     colnr_T	col;	/* column number */
 #ifdef FEAT_VIRTUALEDIT
     colnr_T	coladd;
 #endif
+
+#ifdef FEAT_MULTICURSOR
+    /* cursors works together. */
+    struct pos_s *next;
+    struct pos_s *prev;
+#endif
+
 } pos_T;
 
 #ifdef FEAT_VIRTUALEDIT
@@ -2052,6 +2063,9 @@ struct window_S
     frame_T	*w_frame;	    /* frame containing this window */
 
     pos_T	w_cursor;	    /* cursor position in buffer */
+#ifdef FEAT_MULTICURSOR
+    multi_cursor_list_T w_multicursors; /* multi cursor management*/
+#endif
 
     colnr_T	w_curswant;	    /* The column we'd like to be at.  This is
 				       used to try to stay in the same column
