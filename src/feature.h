@@ -340,7 +340,7 @@
  *			This feature allows to have several cursor editing at 
  *			same time.
  * */
-#ifdef FEAT_BIG || defined(FEAT_HUGE)
+#if defined(FEAT_BIG) || defined(FEAT_HUGE)
 # define FEAT_MULTICURSOR
 #endif
 
