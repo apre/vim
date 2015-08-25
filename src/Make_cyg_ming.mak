@@ -364,7 +364,7 @@ MKDIR = mkdir
 DIRSLASH = \\
 endif
 endif
-CC := $(CROSS_COMPILE)gcc
+CC := ccache $(CROSS_COMPILE)gcc
 CXX := $(CROSS_COMPILE)g++
 ifeq ($(UNDER_CYGWIN),yes)
 WINDRES := $(CROSS_COMPILE)windres
