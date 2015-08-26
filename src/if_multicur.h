@@ -22,43 +22,4 @@
 #if defined(FEAT_MULTICURSOR) && !defined(FEAT_MULTI_CURSOR_INCLUDED)
 #define FEAT_MULTI_CURSOR_INCLUDED
 
-#include "vim.h"
-
-/** "virtual" cursor.
- */
-typedef struct mtc_pos_s
-{
-    linenr_T	lnum;	/* line number */
-    colnr_T	col;	/* column number */
-#ifdef FEAT_VIRTUALEDIT
-    colnr_T	coladd;
-#endif
-
-    struct mtc_pos_s *next;
-    struct mtc_pos_s *prev;
-
-} mtc_pos_T;
-
-/** multi-cursor list.
- *
- * The list of cursor is attached and specific to each window.
- * It is a double-linked list to allow normal and reverse iteration.
- * */
-
-
-typedef struct {
-
-    long number_of_cursors; /* number of cursor contained in the list. */
-    int sorted; /* indicates if the list is sorted. */
- 
-    mtc_pos_T * first; /* first cursor of the list */
-    mtc_pos_T * last; /* last cursor of the list */
-
-} multi_cursor_list_T;
-
-/** initalize a new empty cursor list. 
- * @param[in,out] cursor_list the cursor list to initialize.
- * */
-void mtc_list_init(multi_cursor_list_T *cursor_list);
-
 #endif

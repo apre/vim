@@ -34,13 +34,6 @@ typedef struct post_s
 #ifdef FEAT_VIRTUALEDIT
     colnr_T	coladd;
 #endif
-
-#ifdef FEAT_MULTICURSOR
-    /* cursors works together. */
-    struct pos_s *next;
-    struct pos_s *prev;
-#endif
-
 } pos_T;
 
 #ifdef FEAT_VIRTUALEDIT
@@ -313,6 +306,20 @@ typedef struct
     int		vi_mode;	/* VIsual_mode of last VIsual */
     colnr_T	vi_curswant;	/* MAXCOL from w_curswant */
 } visualinfo_T;
+
+#if defined(FEAT_MULTICURSOR)
+/** multi-cursor list.
+ *
+ * cursors are stored in a vim growable array.
+ *
+ **/
+
+typedef struct {
+    garray_T cursors; /**< list of available cursors.       */  
+    int sorted;       /**< indicates if the list is sorted. */
+} multi_cursor_list_T;
+
+#endif
 
 /*
  * structures used for undo
@@ -2064,7 +2071,7 @@ struct window_S
 
     pos_T	w_cursor;	    /* cursor position in buffer */
 #ifdef FEAT_MULTICURSOR
-    multi_cursor_list_T w_multicursors; /* multi cursor management*/
+    multi_cursor_list_T w_mcursors; /* multi cursor management */
 #endif
 
     colnr_T	w_curswant;	    /* The column we'd like to be at.  This is

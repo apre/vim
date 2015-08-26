@@ -7233,7 +7233,10 @@ ex_multicursor_add(eap)
 
     printf("mca command called\n");
     printf("Cursor (%3d,%3d)\n",curwin->w_cursor.col,curwin->w_cursor.lnum);
+    mtc_add_pos(&curwin->w_mcursors,&curwin->w_cursor);
 
+    printf("%3d/%3d cursors\n",curwin->w_mcursors.cursors.ga_len,curwin->w_mcursors.cursors.ga_maxlen);
+    mtc_print_all(&curwin->w_mcursors);
 }
 /*
  * ":mcc": delete all cursors
@@ -7260,7 +7263,12 @@ ex_multicursor_delete(eap)
 ex_multicursor_start_interactive(eap)
     exarg_T	*eap;
 {
-    printf("mci command called\n");
+    printf("mci command called. Cursor before sorting\n");
+
+    mtc_print_all(&curwin->w_mcursors);
+    mtc_list_sort(&curwin->w_mcursors);
+    printf("vvvvvvvvvvvvvvvvvvvvvvv\n");
+    mtc_print_all(&curwin->w_mcursors);
 }
 
 /*
