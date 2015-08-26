@@ -24,32 +24,27 @@
 #include "if_multicur.h"
 #include <stdlib.h> /* for qsort */
 
+
+const int  NUMBER_OF_CURSORS_IN_STORE = 10;
+
+/** initalize and allocate a new empty cursor list. 
+ * @param[in,out] cursor_list the cursor list to initialize.
+ * */
 void mtc_list_init(multi_cursor_list_T * clist) {
-    clist->first = NULL;
-    clist->last = NULL;
-    clist->number_of_cursors = 0;
-    clist->sorted = 0;
+    clist->sorted = FALSE;
+    ga_init2( &clist->cursors, sizeof(pos_T),NUMBER_OF_CURSORS_IN_STORE);
 }
 
 /** delete all cursors contained in the cursor list. 
  */
 void mtc_list_free(multi_cursor_list_T *clist) {
-     mtc_pos_T * cursor, * next_cursor;
-
-    cursor = clist->first;
-
-     while (cursor) {
-	 next_cursor = cursor->next;
-	 vim_free(cursor);
-	 cursor = next_cursor;
-     }
-
-     mtc_list_init(clist);
+    ga_clear(&clist->cursors);
+    clist->sorted = FALSE;
 }
 
 
 /** 3 way compare of cursors positions. */
-static int cursor_cmp(mtc_pos_T *p1, mtc_pos_T *p2) {
+static int cursor_cmp(pos_T *p1, pos_T *p2) {
     int pos1;
     int pos2;
 
@@ -62,38 +57,100 @@ static int cursor_cmp(mtc_pos_T *p1, mtc_pos_T *p2) {
 
     if (pos1 == pos2) {
 	return 0;
-    } else {
-	return pos1 < pos2;
-    }
+    } 
+    
+    if (pos1 > pos2)  {
+	return 1; } else {
+	    return -1;
+	}
 }
 
 /** sort cursor in the cursor list. */
 void mtc_list_sort(multi_cursor_list_T *clist) {
-    printf("Sorting cursor list (%3d cursors)\n",clist->number_of_cursors);
+    printf("Sorting cursor list (%3d cursors)\n",clist->cursors.ga_len);
+
+    if (clist->cursors.ga_data) {
+    qsort(clist->cursors.ga_data,clist->cursors.ga_len,sizeof(pos_T),cursor_cmp);
+
+    clist->sorted = TRUE;
+    }
 
 }
 
-/** add a new cursor at the end of the cursor list. */
-void mtc_add_cursor(multi_cursor_list_T *clist,
-	linenr_T lnum,
-	colnr_T col,
-	colnr_T coladd) {
+/** checks if the cursor is already in the cursor list.
+ * @param clist the cursor list to look at
+ * @param pos the curser to check if it is in \c clist
+ * @retval 0 if \c pos is NOT in the list.
+ * @retval 1 if \c pos is in the list
+ * */
+int mtc_check_if_exists(multi_cursor_list_T *clist,
+		 pos_T * pos) {
+    int i;
+    pos_T * cursor_array;
 
-    mtc_pos_T * new_cursor = NULL;
+    cursor_array = (pos_T *) clist->cursors.ga_data;
+
+    for (i=0;i< clist->cursors.ga_len;i++) {
+	if  (cursor_cmp( &cursor_array[i] ,pos) == 0 ) {
+	    return 1;
+	}
+    }
+    return 0;
+}
+
+
+/** append a new cursor into the cursor list.
+ * @param clist the cursor list to edit
+ * @param pos   the item to add into the list.
+ * The cursor \c pos is copied into the list, so it can be safely deallocated .  
+ *
+ * @retval OK if  pos has been added to the cursor list
+ * @retval FAIL if \c pos were not unique.
+ *
+ * 
+ * 
+ * */
+int mtc_add_pos(multi_cursor_list_T *clist,
+		 pos_T * pos) {
+    int status = OK;
+    int retval;
     
-    new_cursor = (mtc_pos_T*) alloc(sizeof(mtc_pos_T));
-    if (new_cursor) {
-	vim_memset(new_cursor,0,sizeof(mtc_pos_T));
-	new_cursor->prev = clist->last;
+    clist->sorted = FALSE;
 
-	new_cursor->lnum = lnum;
-	new_cursor->col = col;
-#ifdef FEAT_VIRTUALEDIT	
-	new_cursor->coladd = coladd;
-#endif
-	clist->last = new_cursor;
-	clist->number_of_cursors = clist->number_of_cursors +1;
-	clist->sorted = FALSE; /* invalidate sorted flag to force re-sorting*/
+    if (mtc_check_if_exists(clist,pos) != 0) {
+	printf("Error: cursor %d,%d is already existing\n",pos->lnum,pos->col);
+	return FAIL;
+    }	
+
+    if (clist->cursors.ga_len == clist->cursors.ga_maxlen) {
+	printf("Cursor list need growing");
+	status = ga_grow(&clist->cursors,NUMBER_OF_CURSORS_IN_STORE);
+    }
+
+    if (status == OK) {
+	pos_T * cursor_array;
+
+	cursor_array = (pos_T*) clist->cursors.ga_data;
+
+	cursor_array[clist->cursors.ga_len] = *pos;
+	clist->cursors.ga_len= clist->cursors.ga_len + 1;
+    } else {
+	/* TODO: handle growing error*/
+    }
+
+    return retval;
+}
+
+
+
+void mtc_print_all(multi_cursor_list_T *clist) {
+    int i;
+    pos_T * cursor_array;
+
+    cursor_array = (pos_T *) clist->cursors.ga_data;
+
+    for (i=0;i< clist->cursors.ga_len;i++) {
+	printf("%03d: (%3d,%3d)\n",i,cursor_array[i].lnum,cursor_array[i].col);
     }
 }
 

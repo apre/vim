@@ -4627,7 +4627,7 @@ win_alloc(after, hidden)
 
 
 #ifdef FEAT_MULTICURSOR
-    mtc_list_init(&new_wp->w_multicursors);
+    mtc_list_init(&new_wp->w_mcursors);
 #endif
 
 #ifdef FEAT_AUTOCMD
@@ -4713,7 +4713,7 @@ win_free(wp, tp)
 #endif
 
 #ifdef FEAT_MULTICURSOR
-    mtc_list_free(&wp->w_multicursors);
+    mtc_list_free(&wp->w_mcursors);
 #endif
 
 
