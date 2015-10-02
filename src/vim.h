@@ -6,6 +6,10 @@
  * Do ":help credits" in Vim to see a list of people who contributed.
  */
 
+/** \file
+ * \brief the header file puzzle.
+ * */
+
 #ifndef VIM__H
 # define VIM__H
 

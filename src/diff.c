@@ -7,8 +7,8 @@
  * See README.txt for an overview of the Vim source code.
  */
 
-/*
- * diff.c: code for diff'ing two, three or four buffers.
+/** \file
+ * \brief code for diff'ing two, three or four buffers.
  */
 
 #include "vim.h"

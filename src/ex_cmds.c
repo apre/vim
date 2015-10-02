@@ -7,8 +7,8 @@
  * See README.txt for an overview of the Vim source code.
  */
 
-/*
- * ex_cmds.c: some functions for command line commands
+/** \file
+ * \brief some functions for command line commands
  */
 
 #include "vim.h"

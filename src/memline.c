@@ -11,9 +11,9 @@
 /* #define CHECK(c, s)	if (c) EMSG(s) */
 #define CHECK(c, s)
 
-/*
- * memline.c: Contains the functions for appending, deleting and changing the
- * text lines. The memfile functions are used to store the information in
+/** \file
+ * \brief  Contains the functions for appending, deleting and changing the  text lines. 
+ * The memfile functions are used to store the information in
  * blocks of memory, backed up by a file. The structure of the information is
  * a tree.  The root of the tree is a pointer block. The leaves of the tree
  * are data blocks. In between may be several layers of pointer blocks,

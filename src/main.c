@@ -7,6 +7,13 @@
  * See README.txt for an overview of the Vim source code.
  */
 
+
+/** \file
+ * \brief vim main file.
+ *
+ * */
+
+
 #define EXTERN
 #include "vim.h"
 
@@ -151,7 +158,9 @@ static char *(main_errors[]) =
 #ifndef NO_VIM_MAIN	/* skip this for unittests */
 
 static char_u *start_dir = NULL;	/* current working dir on startup */
-
+/** main loop.
+ * \callgraph
+ * */
     int
 # ifdef VIMDLL
 _export
@@ -1054,12 +1063,14 @@ vim_main2(int argc UNUSED, char **argv UNUSED)
 #endif /* NO_VIM_MAIN */
 #endif /* PROTO */
 
-/*
- * Main loop: Execute Normal mode commands until exiting Vim.
+/** Main loop: Execute Normal mode commands until exiting Vim.
+ *
  * Also used to handle commands in the command-line window, until the window
  * is closed.
  * Also used to handle ":visual" command after ":global": execute Normal mode
  * commands, return when entering Ex mode.  "noexmode" is TRUE then.
+ * 
+ * \callgraph
  */
     void
 main_loop(cmdwin, noexmode)

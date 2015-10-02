@@ -7,13 +7,13 @@
  * See README.txt for an overview of the Vim source code.
  */
 
-/*
- * syntax.c: code for syntax highlighting
+/** \file
+ * \brief code for syntax highlighting
  */
 
 #include "vim.h"
 
-/*
+/**
  * Structure that stores information about a highlight group.
  * The ID of a highlight group is also called group ID.  It is the index in
  * the highlight_ga array PLUS ONE.
@@ -130,7 +130,7 @@ static void hl_do_font __ARGS((int idx, char_u *arg, int do_normal, int do_menu,
 static char *(spo_name_tab[SPO_COUNT]) =
 	    {"ms=", "me=", "hs=", "he=", "rs=", "re=", "lc="};
 
-/*
+/**
  * The patterns that are being searched for are stored in a syn_pattern.
  * A match item consists of one pattern.
  * A start/end item consists of n start patterns and m end patterns.
@@ -274,7 +274,7 @@ static int keepend_level = -1;
 
 static char msg_no_items[] = N_("No Syntax items defined for this buffer");
 
-/*
+/**
  * For the current state we need to remember more than just the idx.
  * When si_m_endpos.lnum is 0, the items other than si_idx are unknown.
  * (The end positions have the column number of the next char)
@@ -314,7 +314,7 @@ typedef struct state_item
 static int next_seqnr = 1;		/* value to use for si_seqnr */
 #endif
 
-/*
+/**
  * Struct to reduce the number of arguments to get_syn_options(), it's used
  * very often.
  */

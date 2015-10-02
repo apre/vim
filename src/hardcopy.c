@@ -7,15 +7,15 @@
  * See README.txt for an overview of the Vim source code.
  */
 
-/*
- * hardcopy.c: printing to paper
+/** \file
+ * \brief hardcopy: printing to paper
  */
 
 #include "vim.h"
 #include "version.h"
 
 #if defined(FEAT_PRINTER) || defined(PROTO)
-/*
+/** \file
  * To implement printing on a platform, the following functions must be
  * defined:
  *

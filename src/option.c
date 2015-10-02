@@ -7,8 +7,11 @@
  * See README.txt for an overview of the Vim source code.
  */
 
-/*
- * Code to handle user-settable options. This is all pretty much table-
+/** \file
+ * \brief Code to handle user-settable options. 
+ * 
+ * Code to handle user-settable options. 
+ * This is all pretty much table-
  * driven. Checklist for adding a new option:
  * - Put it in the options array below (copy an existing entry).
  * - For a global option: Add a variable for it in option.h.

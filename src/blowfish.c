@@ -5,8 +5,9 @@
  * Do ":help uganda"  in Vim to read copying and usage conditions.
  * Do ":help credits" in Vim to see a list of people who contributed.
  * See README.txt for an overview of the Vim source code.
- *
- * Blowfish encryption for Vim; in Blowfish cipher feedback mode.
+ */
+/** \file
+ * \brief Blowfish encryption for Vim; in Blowfish cipher feedback mode.
  * Contributed by Mohsin Ahmed, http://www.cs.albany.edu/~mosh
  * Based on http://www.schneier.com/blowfish.html by Bruce Schneier.
  *

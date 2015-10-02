@@ -7,8 +7,8 @@
  * See README.txt for an overview of the Vim source code.
  */
 
-/*
- * edit.c: functions for Insert mode
+/** \file
+ * \brief functions for Insert mode
  */
 
 #include "vim.h"

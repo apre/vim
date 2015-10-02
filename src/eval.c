@@ -7,8 +7,8 @@
  * See README.txt for an overview of the Vim source code.
  */
 
-/*
- * eval.c: Expression evaluation.
+/** \file
+ * \brief Expression evaluation.
  */
 
 #include "vim.h"

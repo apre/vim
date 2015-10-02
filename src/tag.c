@@ -7,8 +7,8 @@
  * See README.txt for an overview of the Vim source code.
  */
 
-/*
- * Code to handle tags and the tag stack
+/** \file
+ * \brief Code to handle tags and the tag stack
  */
 
 #include "vim.h"

@@ -7,8 +7,8 @@
  * See README.txt for an overview of the Vim source code.
  */
 
-/*
- * spell.c: code for spell checking
+/** \file
+ * \brief  code for spell checking
  *
  * The spell checking mechanism uses a tree (aka trie).  Each node in the tree
  * has a list of bytes that can appear (siblings).  For each byte there is a
@@ -21,6 +21,7 @@
  * The tree uses two arrays: "byts" stores the characters, "idxs" stores
  * either the next index or flags.  The tree starts at index 0.  For example,
  * to lookup "vi" this sequence is followed:
+ * \verbatim
  *	i = 0
  *	len = byts[i]
  *	n = where "v" appears in byts[i + 1] to byts[i + len]
@@ -30,7 +31,7 @@
  *	i = idxs[n]
  *	len = byts[i]
  *	find that byts[i + 1] is 0, idxs[i + 1] has flags for "vi".
- *
+ * \endverbatim
  * There are two word trees: one with case-folded words and one with words in
  * original case.  The second one is only used for keep-case words and is
  * usually small.

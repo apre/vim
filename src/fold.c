@@ -8,8 +8,8 @@
  * See README.txt for an overview of the Vim source code.
  */
 
-/*
- * fold.c: code for folding
+/** \file
+ * \brief  code for folding
  */
 
 #include "vim.h"
@@ -18,7 +18,7 @@
 
 /* local declarations. {{{1 */
 /* typedef fold_T {{{2 */
-/*
+/**
  * The toplevel folds for each window are stored in the w_folds growarray.
  * Each toplevel fold can contain an array of second level folds in the
  * fd_nested growarray.
@@ -124,7 +124,7 @@ hasAnyFolding(win)
 }
 
 /* hasFolding() {{{2 */
-/*
+/** checks if the current line is part of a closed fold. 
  * Return TRUE if line "lnum" in the current window is part of a closed
  * fold.
  * When returning TRUE, *firstp and *lastp are set to the first and last

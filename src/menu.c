@@ -8,8 +8,8 @@
  * See README.txt for an overview of the Vim source code.
  */
 
-/*
- * Code for menus.  Used for the GUI and 'wildmenu'.
+/** \file
+ * \brief Code for menus.  Used for the GUI and 'wildmenu'.
  */
 
 #include "vim.h"

@@ -6,8 +6,8 @@
  * Do ":help credits" in Vim to see a list of people who contributed.
  * See README.txt for an overview of the Vim source code.
  */
-/*
- * move.c: Functions for moving the cursor and scrolling text.
+/** \file
+ * \brief Functions for moving the cursor and scrolling text.
  *
  * There are two ways to move the cursor:
  * 1. Move the cursor directly, the text is scrolled to keep the cursor in the

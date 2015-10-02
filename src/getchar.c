@@ -7,10 +7,9 @@
  * See README.txt for an overview of the Vim source code.
  */
 
-/*
- * getchar.c
+/** \file
  *
- * functions related with getting a character from the user/mapping/redo/...
+ * \brief functions related with getting a character from the user/mapping/redo/...
  *
  * manipulations with redo buffer and stuff buffer
  * mappings and abbreviations

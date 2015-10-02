@@ -7,6 +7,10 @@
  * Do ":help credits" in Vim to see a list of people who contributed.
  */
 
+/** \file
+ * \brief abstract-gui (shared) data structures.
+ */
+
 #ifdef FEAT_GUI_MOTIF
 # include <Xm/Xm.h>
 #endif

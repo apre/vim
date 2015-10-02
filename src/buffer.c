@@ -7,11 +7,9 @@
  * See README.txt for an overview of the Vim source code.
  */
 
-/*
- * buffer.c: functions for dealing with the buffer structure
- */
-
-/*
+/** \file
+ *  \brief functions for dealing with the buffer structure.
+ *
  * The buffer list is a double linked list of all buffers.
  * Each buffer can be in one of these states:
  * never loaded: BF_NEVERLOADED is set, only the file name is valid

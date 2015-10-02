@@ -6,8 +6,8 @@
  * Do ":help credits" in Vim to see a list of people who contributed.
  */
 
-/*
- * This file contains various definitions of structures that are used by Vim
+/** \file
+ * \brief contains various definitions of structures that are used by Vim
  */
 
 /*
@@ -20,11 +20,12 @@ typedef int		colnr_T;
 typedef unsigned short	short_u;
 #endif
 
+
 #ifdef FEAT_MULTICURSOR
 #include "if_multicur.h"
 #endif
 
-/*
+/**
  * position in file or buffer
  */
 typedef struct post_s

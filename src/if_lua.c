@@ -9,6 +9,10 @@
  * See README.txt for an overview of the Vim source code.
  */
 
+/** \file
+ * \brief interface to the lua scripting engine.
+ * */
+
 #include "vim.h"
 
 #include <lua.h>

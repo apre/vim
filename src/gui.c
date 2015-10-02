@@ -10,7 +10,11 @@
 
 #include "vim.h"
 
-/* Structure containing all the GUI information */
+/** \file
+ * \brief handle GUI abstraction.
+ * */
+
+/** Structure containing all the GUI information */
 gui_T gui;
 
 #if defined(FEAT_MBYTE) && !defined(FEAT_GUI_GTK)

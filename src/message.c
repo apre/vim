@@ -7,8 +7,8 @@
  * See README.txt for an overview of the Vim source code.
  */
 
-/*
- * message.c: functions for displaying messages on the command line
+/** \file
+ * \brief functions for displaying messages on the command line.
  */
 
 #define MESSAGE_FILE		/* don't include prototype for smsg() */

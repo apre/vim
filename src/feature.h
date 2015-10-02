@@ -5,8 +5,8 @@
  * Do ":help uganda"  in Vim to read copying and usage conditions.
  * Do ":help credits" in Vim to see a list of people who contributed.
  */
-/*
- * feature.h: Defines for optional code and preferences
+/** \file
+ * \brief  Defines for optional code and preferences
  *
  * Edit this file to include/exclude parts of Vim, before compiling.
  * The only other file that may be edited is Makefile, it contains machine
@@ -17,7 +17,7 @@
  * To exclude specific options, change the "#define" into a comment.
  */
 
-/*
+/**
  * When adding a new feature:
  * - Add a #define below.
  * - Add a message in the table above ex_version().
@@ -28,7 +28,7 @@
  * - Add comment for the documentation of commands that use the feature.
  */
 
-/*
+/**
  * Basic choices:
  * ==============
  *
