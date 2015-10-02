@@ -6,16 +6,8 @@
  * Do ":help credits" in Vim to see a list of people who contributed.
  */
 
-/*
- * This file defines the Ex commands.
- * When DO_DECLARE_EXCMD is defined, the table with ex command names and
- * options results.
- * When DO_DECLARE_EXCMD is NOT defined, the enum with all the Ex commands
- * results.
- * This clever trick was invented by Ron Aaron.
- */
-
-/*
+/** \file
+ * \brief This file defines the Ex commands.
  * When adding an Ex command:
  * 1. Add an entry in the table below.  Keep it sorted on the shortest
  *    version of the command name that works.  If it doesn't start with a
@@ -25,6 +17,14 @@
  * 4. Add documentation in ../doc/xxx.txt.  Add a tag for both the short and
  *    long name of the command.
  */
+/*
+ * When DO_DECLARE_EXCMD is defined, the table with ex command names and
+ * options results.
+ * When DO_DECLARE_EXCMD is NOT defined, the enum with all the Ex commands
+ * results.
+ * This clever trick was invented by Ron Aaron.
+ */
+
 
 #ifdef RANGE
 # undef RANGE			/* SASC on Amiga defines it */

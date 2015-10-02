@@ -7,6 +7,10 @@
  * See README.txt for an overview of the Vim source code.
  */
 
+/** \file
+ * \brief handling split windows.
+ * */
+
 #include "vim.h"
 
 static int path_is_url __ARGS((char_u *p));

@@ -6,11 +6,11 @@
  * Do ":help credits" in Vim to see a list of people who contributed.
  */
 
-/*
- * definition of global variables
+/** \file
+ * \brief definition of global variables
  */
 
-/*
+/**
  * Number of Rows and Columns in the screen.
  * Must be long to be able to use them as options in option.c.
  * Note: Use screen_Rows and screen_Columns to access items in ScreenLines[].
@@ -28,7 +28,7 @@ EXTERN long	Rows			/* nr of rows in the screen */
 			    ;
 EXTERN long	Columns INIT(= 80);	/* nr of columns in the screen */
 
-/*
+/**
  * The characters that are currently on the screen are kept in ScreenLines[].
  * It is a single block of characters, the size of the screen plus one line.
  * The attributes for those characters are kept in ScreenAttrs[].
@@ -45,7 +45,7 @@ EXTERN unsigned	*LineOffset INIT(= NULL);
 EXTERN char_u	*LineWraps INIT(= NULL);	/* line wraps to next line */
 
 #ifdef FEAT_MBYTE
-/*
+/** Unicode characters.
  * When using Unicode characters (in UTF-8 encoding) the character in
  * ScreenLinesUC[] contains the Unicode for the character at this position, or
  * NUL when the character in ScreenLines[] is to be used (ASCII char).

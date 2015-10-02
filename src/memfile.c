@@ -7,8 +7,10 @@
  * See README.txt for an overview of the Vim source code.
  */
 
-/*
- * memfile.c: Contains the functions for handling blocks of memory which can
+/** \file
+ * \brief  function for handling blocks of memory that can be stored in a file.
+ *
+ * Contains the functions for handling blocks of memory which can
  * be stored in a file. This is the implementation of a sort of virtual memory.
  *
  * A memfile consists of a sequence of blocks. The blocks numbered from 0
@@ -92,33 +94,34 @@ static void mf_hash_add_item __ARGS((mf_hashtab_T *, mf_hashitem_T *));
 static void mf_hash_rem_item __ARGS((mf_hashtab_T *, mf_hashitem_T *));
 static int mf_hash_grow __ARGS((mf_hashtab_T *));
 
-/*
+/** \file 
+ * \section memfile_funct functions for using a memfile
  * The functions for using a memfile:
  *
- * mf_open()	    open a new or existing memfile
- * mf_open_file()   open a swap file for an existing memfile
- * mf_close()	    close (and delete) a memfile
- * mf_new()	    create a new block in a memfile and lock it
- * mf_get()	    get an existing block and lock it
- * mf_put()	    unlock a block, may be marked for writing
- * mf_free()	    remove a block
- * mf_sync()	    sync changed parts of memfile to disk
- * mf_release_all() release as much memory as possible
- * mf_trans_del()   may translate negative to positive block number
- * mf_fullname()    make file name full path (use before first :cd)
+ *  - mf_open()	    open a new or existing memfile
+ *  - mf_open_file()   open a swap file for an existing memfile
+ *  - mf_close()	    close (and delete) a memfile
+ *  - mf_new()	    create a new block in a memfile and lock it
+ *  - mf_get()	    get an existing block and lock it
+ *  - mf_put()	    unlock a block, may be marked for writing
+ *  - mf_free()	    remove a block
+ *  - mf_sync()	    sync changed parts of memfile to disk
+ *  - mf_release_all() release as much memory as possible
+ *  - mf_trans_del()   may translate negative to positive block number
+ *  - mf_fullname()    make file name full path (use before first :cd)
  */
 
-/*
+/**
  * Open an existing or new memory block file.
  *
- *  fname:	name of file to use (NULL means no file at all)
+ *  @param fname the file to use (NULL means no file at all)
  *		Note: fname must have been allocated, it is not copied!
  *			If opening the file fails, fname is freed.
- *  flags:	flags for open() call
+ *  @param flags flags for open() call
  *
  *  If fname != NULL and file cannot be opened, fail.
  *
- * return value: identifier for this memory block file.
+ * @retval identifier for this memory block file.
  */
     memfile_T *
 mf_open(fname, flags)

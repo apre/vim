@@ -7,8 +7,8 @@
  * See README.txt for an overview of the Vim source code.
  */
 
-/*
- * ops.c: implementation of various operators: op_shift, op_delete, op_tilde,
+/** \file
+ * \brief implementation of various operators: op_shift, op_delete, op_tilde,
  *	  op_change, op_yank, do_put, do_join
  */
 
@@ -123,7 +123,8 @@ static int	fmt_check_par __ARGS((linenr_T, int *, char_u **, int do_comments));
 static int	fmt_check_par __ARGS((linenr_T));
 #endif
 
-/*
+/** names of vim operators.
+ *
  * The names of operators.
  * IMPORTANT: Index must correspond with defines in vim.h!!!
  * The third field indicates whether the operator always works on lines.

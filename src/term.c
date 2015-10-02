@@ -6,9 +6,9 @@
  * Do ":help credits" in Vim to see a list of people who contributed.
  * See README.txt for an overview of the Vim source code.
  */
-/*
- *
- * term.c: functions for controlling the terminal
+/** 
+ * \file
+ * \brief  functions for controlling the terminal
  *
  * primitive termcap support for Amiga, MSDOS, and Win32 included
  *
@@ -50,7 +50,7 @@
 
 #undef tgetstr
 
-/*
+/**
  * Here are the builtin termcap entries.  They are not stored as complete
  * structures with all entries, as such a structure is too big.
  *
@@ -99,7 +99,7 @@ static void switch_to_8bit __ARGS((void));
 #ifdef HAVE_TGETENT
 static char_u *tgetent_error __ARGS((char_u *, char_u *));
 
-/*
+/**
  * Here is our own prototype for tgetstr(), any prototypes from the include
  * files have been disabled by the define at the start of this file.
  */

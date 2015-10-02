@@ -7,8 +7,8 @@
  * See README.txt for an overview of the Vim source code.
  */
 
-/*
- * ex_eval.c: functions for Ex command line for the +eval feature.
+/** \file
+ * \brief functions for Ex command line for the \c +eval feature.
  */
 
 #include "vim.h"

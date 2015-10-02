@@ -13,8 +13,8 @@
 
 #include "vim.h"
 
-/*
- * This file contains routines to maintain and manipulate marks.
+/** \file
+ * \brief contains routines to maintain and manipulate marks.
  */
 
 /*

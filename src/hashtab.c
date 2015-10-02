@@ -7,8 +7,8 @@
  * See README.txt for an overview of the Vim source code.
  */
 
-/*
- * hashtab.c: Handling of a hashtable with Vim-specific properties.
+/** \file
+ * \brief  Handling of a hashtable with Vim-specific properties.
  *
  * Each item in a hashtable has a NUL terminated string key.  A key can appear
  * only once in the table.

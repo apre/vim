@@ -7,8 +7,8 @@
  * See README.txt for an overview of the Vim source code.
  */
 
-/*
- * fileio.c: read from and write to a file
+/** \file
+ * \brief read from and write to a file
  */
 
 #include "vim.h"

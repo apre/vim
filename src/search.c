@@ -34,7 +34,9 @@ static void show_pat_in_path __ARGS((char_u *, int,
 static void wvsp_one __ARGS((FILE *fp, int idx, char *s, int sc));
 #endif
 
-/*
+/* \file
+ * \brief contains various searching-related routines.
+ *
  * This file contains various searching-related routines. These fall into
  * three groups:
  * 1. string searches (for /, ?, n, and N)
@@ -42,7 +44,7 @@ static void wvsp_one __ARGS((FILE *fp, int idx, char *s, int sc));
  * 3. "other" kinds of searches like the '%' command, and 'word' searches.
  */
 
-/*
+/**
  * String searches
  *
  * The string search functions are divided into two levels:

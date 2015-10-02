@@ -7,8 +7,8 @@
  * See README.txt for an overview of the Vim source code.
  */
 
-/*
- * misc1.c: functions that didn't seem to fit elsewhere
+/** \file
+ * \brief  functions that didn't seem to fit elsewhere
  */
 
 #include "vim.h"

@@ -6,8 +6,10 @@
  * Do ":help credits" in Vim to see a list of people who contributed.
  * See README.txt for an overview of the Vim source code.
  */
-/*
- * normal.c:	Contains the main routine for processing characters in command
+
+/** \file
+ * \brief contains main routine for processing characters in command mode.
+ *              Contains the main routine for processing characters in command
  *		mode.  Communicates closely with the code in ops.c to handle
  *		the operators.
  */
@@ -209,7 +211,7 @@ typedef void (*nv_func_T) __ARGS((cmdarg_T *cap));
  * becomes character or line oriented accordingly.
  */
 
-/*
+/** Normal and Visual mode commands.
  * This table contains one entry for every Normal or Visual mode command.
  * The order doesn't matter, init_normal_cmds() will create a sorted index.
  * It is faster when all keys from zero to '~' are present.

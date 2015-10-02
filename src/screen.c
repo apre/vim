@@ -7,8 +7,8 @@
  * See README.txt for an overview of the Vim source code.
  */
 
-/*
- * screen.c: code for displaying on the screen
+/** \file
+ * \brief code for displaying on the screen
  *
  * Output to the screen (console, terminal emulator or GUI window) is minimized
  * by remembering what is already on the screen, and only updating the parts
@@ -211,7 +211,7 @@ redraw_win_later(wp, type)
     }
 }
 
-/*
+/**
  * Force a complete redraw later.  Also resets the highlighting.  To be used
  * after executing a shell command that messes up the screen.
  */
@@ -269,7 +269,7 @@ redraw_buf_later(buf, type)
     }
 }
 
-/*
+/**
  * Redraw as soon as possible.  When the command line is not scrolled redraw
  * right away and restore what was on the command line.
  * Return a code indicating what happened.

@@ -7,8 +7,8 @@
  * See README.txt for an overview of the Vim source code.
  */
 
-/*
- * misc2.c: Various functions.
+/** \file
+ * \brief  Various functions.
  */
 #include "vim.h"
 
@@ -19,7 +19,7 @@ static char_u	*ff_expand_buffer = NULL; /* used for expanding filenames */
 #if defined(FEAT_VIRTUALEDIT) || defined(PROTO)
 static int coladvance2 __ARGS((pos_T *pos, int addspaces, int finetune, colnr_T wcol));
 
-/*
+/**
  * Return TRUE if in the current mode we need to use virtual.
  */
     int
@@ -35,7 +35,7 @@ virtual_active()
 	    || ((ve_flags & VE_INSERT) && (State & INSERT)));
 }
 
-/*
+/**
  * Get the screen position of the cursor.
  */
     int
@@ -47,7 +47,7 @@ getviscol()
     return (int)x;
 }
 
-/*
+/**
  * Get the screen position of character col with a coladd in the cursor line.
  */
     int
@@ -114,7 +114,7 @@ coladvance(wcol)
     return rc;
 }
 
-/*
+/**
  * Return in "pos" the position of the cursor advanced to screen column "wcol".
  * return OK if desired column is reached, FAIL if not
  */
@@ -337,7 +337,7 @@ coladvance2(pos, addspaces, finetune, wcol)
     return OK;
 }
 
-/*
+/**
  * Increment the cursor position.  See inc() for return values.
  */
     int
@@ -346,7 +346,7 @@ inc_cursor()
     return inc(&curwin->w_cursor);
 }
 
-/*
+/**
  * Increment the line pointer "lp" crossing line boundaries as necessary.
  * Return 1 when going to the next line.
  * Return 2 when moving forward onto a NUL at the end of the line).

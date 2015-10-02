@@ -7,8 +7,8 @@
  * See README.txt for an overview of the Vim source code.
  */
 
-/*
- * ex_docmd.c: functions for executing an Ex command line.
+/** \file
+ * \brief functions for executing an Ex command line.
  */
 
 #include "vim.h"
